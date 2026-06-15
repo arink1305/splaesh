@@ -5,87 +5,154 @@
 </p>
 
 <p align="center">
-  <b>An Android bathing app for Norway with interactive weather maps, point forecasts, warnings, sea data, UV, and smart beach recommendations.</b>
+  <b>An Android bathing app for Norway with interactive weather maps, point forecasts, sea data, hazard warnings, UV, and beach recommendations.</b>
 </p>
 
 <p align="center">
-  This repository is a public portfolio version of a team project originally developed in the course <code>IN2000</code>.
+  Public portfolio version of a <b>group project</b> originally developed by <b>Team 41</b> in the course <code>IN2000</code> at the University of Oslo.
 </p>
 
-## Overview
+## Project Context
 
-Splæsh was built as a map-first app for people who want to find a good bathing spot quickly and understand both the weather and the safety conditions before going out.
+Splæsh was built for the case <i>maps for the public</i>. The goal was to create a map-based app for a broad audience that makes it easy to find suitable bathing places and understand both comfort and safety conditions before going out.
 
-The app combines:
+The app is designed to help a user:
 
-- bathing places across Norway shown directly on a map
-- weather point data and weather layers
-- sea temperature, wave height, currents, and UV
-- hazard warnings from Meteorologisk institutt
-- a custom bathing score that summarizes local bathing conditions
-- recommendations based on distance and bathing score
+- find bathing places quickly on a map
+- inspect local weather and sea conditions
+- see hazard warnings directly in the map
+- compare places using recommendations and a custom bathing score
+- plan ahead with weather layers and forecasts up to 10 days
 
-This makes the app useful both for spontaneous trips and for planning ahead.
+This repository is my public portfolio version of the project. It is meant to document the product, the technical choices, and the parts I contributed to in a team setting.
 
-## How the App Works
+## What the App Does
 
-### 1. Map Overview and Point Weather
+Splæsh combines several kinds of information in one map-first Android app:
 
-The home screen shows bathing places as pins on the map. Users can search, zoom, filter, and inspect places directly from the map view.  
-The app also includes point-based weather data, so a user can tap on the map and inspect weather conditions for a chosen location.
+- bathing places across Norway
+- point-based weather forecasts for selected locations
+- weather map layers for temperature, precipitation, and wind
+- sea temperature, wave height, and currents
+- UV information
+- hazard warnings as polygons and risk-aware pin styling
+- personalized recommendations based on distance and bathing score
+- favorites for quick access to saved places
+
+The idea was not only to show where it is nice to swim, but also where it may be unsafe.
+
+## Screenshots and Core Flows
+
+### Map Overview and Point Forecasts
+
+The home screen is centered around the map. Users can browse bathing places, search, zoom, filter, and tap directly in the map to inspect point-based weather data for a chosen location.
 
 <p align="center">
-  <img src="./assets/readme/weather-point.png" alt="Splæsh point weather on map" width="260" />
+  <img src="./assets/readme/weather-point.png" alt="Point weather on the map" width="260" />
 </p>
 
-### 2. Beach Details and Bathing Score
+### Beach Details and Bathing Score
 
-When a user taps a bathing place pin, the app opens a detailed popup with the most relevant local information.  
-This includes warnings, sea temperature, wave height, current, UV, and a custom bathing score that gives an overall evaluation of the conditions at that location.
+Selecting a bathing place opens a detailed popup with the most relevant local information: weather, sea data, warnings, UV, and a custom bathing score that summarizes the overall bathing conditions.
 
 <p align="center">
-  <img src="./assets/readme/beach-popup.png" alt="Splæsh beach details popup" width="260" />
+  <img src="./assets/readme/beach-popup.png" alt="Beach details popup with bathing score" width="260" />
 </p>
 
-### 3. Weather Layers and Time-Based Forecasting
+### Weather Layers and Time-Based Forecasting
 
-The app supports map layers for:
+The app includes weather layers from Victoria WMS for:
 
 - temperature
 - precipitation
 - wind
 
-These layers are shown directly on top of the map and can be explored together with a time scroller, giving the user a weather-map experience similar to a mini-Yr.  
-This makes it possible to inspect forecast development over time rather than only looking at the current conditions.
+These layers can be explored together with a time scroller, giving the user a mini weather-map experience for planning up to 10 days ahead.
 
 <p align="center">
-  <img src="./assets/readme/weather-layers.png" alt="Splæsh weather layers" width="260" />
+  <img src="./assets/readme/weather-layers.png" alt="Weather layers with time scroller" width="260" />
 </p>
 
-### 4. Recommendations and Favorites
+### Recommendations and Favorites
 
-The recommendation flow uses the user’s location and selected radius to suggest nearby bathing places.  
-Places are ranked using distance and the app’s bathing score, helping the user quickly discover where the best nearby conditions are.
-
-Users can also save favorite bathing places for faster access later.
+Recommendations use the user’s location and chosen radius to suggest nearby bathing places, ranked by distance and bathing score. Favorites make it easy to return to places the user likes or visits often.
 
 <p align="center">
-  <img src="./assets/readme/recommendations.png" alt="Splæsh recommendations screen" width="260" />
-  <img src="./assets/readme/favorites.png" alt="Splæsh favorites screen" width="260" />
+  <img src="./assets/readme/recommendations.png" alt="Recommendations screen" width="260" />
+  <img src="./assets/readme/favorites.png" alt="Favorites screen" width="260" />
 </p>
 
-### 5. Settings and Accessibility
+### Settings and Accessibility Choices
 
-The app includes settings for display mode and bathing score preferences.  
-It supports both light and dark screen settings and lets the user adjust how the score should weigh different conditions.
+The app includes light and dark display settings, as well as score preferences that let the user change how the bathing score should weigh different conditions.
 
 <p align="center">
-  <img src="./assets/readme/settings-dark.png" alt="Splæsh dark mode settings" width="260" />
+  <img src="./assets/readme/settings-dark.png" alt="Dark mode settings screen" width="260" />
 </p>
 
-## My Contributions
+## Main Features
 
-In this project, I contributed especially to:
+- Interactive map with bathing place pins across Norway
+- Point weather for chosen map locations
+- Victoria WMS weather layers with time control
+- Hazard warnings shown as polygons in the map
+- Risk-based pin colors for affected bathing places
+- Beach detail popup with weather, sea data, UV, and bathing score
+- Recommendation flow based on distance and conditions
+- Favorites system
+- Light and dark display settings
+
+## Architecture and Technical Approach
+
+The app follows a typical Android architecture with a clear separation between UI, state handling, and data access:
+
+- `Kotlin` and `Jetpack Compose` for the Android app and UI
+- `MVVM` for screen state and presentation logic
+- `Coroutines` for asynchronous work
+- `Retrofit`, `OkHttp`, and `Gson` for external API calls
+- `Kotlinx Serialization` for local JSON-based bathing place data
+- `Mapbox Maps SDK for Android` for map rendering and interaction
+- `Coil` for remote image loading
+- `Google Play Services Location` for live user location
+
+Bathing place data is stored locally in JSON in this project version, while live weather, sea, warning, and UV information comes from external APIs.
+
+## APIs and Data Sources
+
+### Meteorologisk institutt - Locationforecast 2.0
+
+Used for point-based weather forecasts, including temperature, wind, precipitation, and weather symbols for selected locations.
+
+### Meteorologisk institutt - Oceanforecast 2.0
+
+Used for sea temperature and wave-related data. This was a better fit than station-based alternatives because the app needed sea data directly from coordinates tied to bathing places.
+
+### Meteorologisk institutt - MET Alerts
+
+Used for active hazard warnings. These warnings are shown both as polygons on the map and as part of the logic for coloring bathing place pins by risk level.
+
+### Meteorologisk institutt - Victoria WMS
+
+Used for weather map layers in the map client, especially temperature, precipitation, and wind over time.
+
+### Open-Meteo
+
+Used for live UV index and daily UV maximum values. It was chosen because it was straightforward to integrate and fit the app’s need for simple UV data.
+
+## Testing and Quality Work
+
+According to the project report, the app was tested through:
+
+- manual testing
+- user testing
+- guerrilla testing
+- unit testing of important parts such as favorites, location-related logic, and warning functionality
+
+Because the app depends on multiple external APIs with different response times and data quality, robustness was an important part of the work. A central design goal was to keep the app useful even when some data was delayed or unavailable.
+
+## My Role in the Project
+
+This was a team project, so I do not claim sole authorship of the entire app. My main contributions were:
 
 - design and visual polish across the app
 - hazard warnings API integration
@@ -95,32 +162,17 @@ In this project, I contributed especially to:
 - recommendation features and UX
 - preparing this public portfolio version of the repository
 
-## Tech Stack
+## What I Learned
 
-- `Kotlin`
-- `Jetpack Compose`
-- `MVVM`
-- `Coroutines`
-- `Retrofit`
-- `OkHttp`
-- `Gson`
-- `Kotlinx Serialization`
-- `Mapbox Maps SDK for Android`
-- `Coil`
-- `Google Play Services Location`
+This project gave me practical experience with:
 
-## APIs and Data Sources
+- building a map-first Android app for a broad public audience
+- integrating several external APIs with different formats, latency, and stability
+- turning complex data, such as warning polygons and weather layers, into understandable UI
+- balancing usability, design clarity, and information density
+- working in a cross-disciplinary team with agile practices, user feedback, and shared ownership
 
-- `Meteorologisk institutt - Locationforecast 2.0`
-  Point-based forecast data such as temperature, wind, precipitation, and weather symbols.
-- `Meteorologisk institutt - Oceanforecast 2.0`
-  Sea temperature and wave-related data.
-- `Meteorologisk institutt - MET Alerts`
-  Hazard warnings used both in the map and in beach details.
-- `Meteorologisk institutt - Victoria WMS`
-  Weather map layers for temperature, precipitation, and wind.
-- `Open-Meteo`
-  UV index data used as additional outdoor comfort and safety information.
+One of the most valuable lessons was seeing how much better the product became when technical implementation and user testing informed each other continuously.
 
 ## Running the App Locally
 
@@ -158,9 +210,16 @@ This public repository does not include live Mapbox values.
 - `MAPBOX_ACCESS_TOKEN` is used by the app at runtime
 - `MAPBOX_DOWNLOADS_TOKEN` is used by Gradle to fetch Mapbox dependencies
 
-If you want people to test the app without setting up Android Studio, the best approach is to provide a built APK through GitHub `Releases`.
+## Project Status
+
+This repository is a public portfolio version of the original course project.
+
+- It is intended to showcase the product and my contributions.
+- It is not presented as a solo project.
+- No production release or public APK is bundled in this repository at the moment.
 
 ## Team Credit
 
-Splæsh was originally developed as a team project in `IN2000` by Team 41.  
-This repository is my public portfolio version of that work.
+Splæsh was originally developed as a group project by `Team 41` in `IN2000` at the University of Oslo.
+
+This portfolio repository highlights my involvement in that work while keeping the project context clear.

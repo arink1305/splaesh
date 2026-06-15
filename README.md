@@ -48,7 +48,7 @@ The idea was not only to show where it is nice to swim, but also where it may be
 The home screen is centered around the map. Users can browse bathing places, search, zoom, filter, and tap directly in the map to inspect point-based weather data for a chosen location.
 
 <p align="center">
-  <img src="./assets/readme/bilder%20for%20side/kart.png" alt="Map overview" width="260" />" alt="Point weather on the map" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/kart.png" alt="Map overview" width="260" />
 </p>
 
 ### Beach Details and Bathing Score

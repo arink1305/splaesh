@@ -48,7 +48,7 @@ The idea was not only to show where it is nice to swim, but also where it may be
 The home screen is centered around the map. Users can browse bathing places, search, zoom, filter, and tap directly in the map to inspect point-based weather data for a chosen location.
 
 <p align="center">
-  <img src="./assets/readme/weather-point.png" alt="Point weather on the map" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/kart.png" alt="Map overview" width="260" />" alt="Point weather on the map" width="260" />
 </p>
 
 ### Beach Details and Bathing Score
@@ -56,7 +56,7 @@ The home screen is centered around the map. Users can browse bathing places, sea
 Selecting a bathing place opens a detailed popup with the most relevant local information: weather, sea data, warnings, UV, and a custom bathing score that summarizes the overall bathing conditions.
 
 <p align="center">
-  <img src="./assets/readme/beach-popup.png" alt="Beach details popup with bathing score" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/badeplass.png" alt="Beach details popup with bathing score" width="260" />
 </p>
 
 ### Weather Layers and Time-Based Forecasting
@@ -70,7 +70,7 @@ The app includes weather layers from Victoria WMS for:
 These layers can be explored together with a time scroller, giving the user a mini weather-map experience for planning up to 10 days ahead.
 
 <p align="center">
-  <img src="./assets/readme/weather-layers.png" alt="Weather layers with time scroller" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/kartlag.png" alt="Weather layers with time scroller" width="260" />
 </p>
 
 ### Recommendations and Favorites
@@ -78,8 +78,8 @@ These layers can be explored together with a time scroller, giving the user a mi
 Recommendations use the user’s location and chosen radius to suggest nearby bathing places, ranked by distance and bathing score. Favorites make it easy to return to places the user likes or visits often.
 
 <p align="center">
-  <img src="./assets/readme/recommendations.png" alt="Recommendations screen" width="260" />
-  <img src="./assets/readme/favorites.png" alt="Favorites screen" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/anbefalinger.png" alt="Recommendations screen" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/favoritter.png" alt="Favorites screen" width="260" />
 </p>
 
 ### Settings and Accessibility Choices
@@ -87,7 +87,7 @@ Recommendations use the user’s location and chosen radius to suggest nearby ba
 The app includes light and dark display settings, as well as score preferences that let the user change how the bathing score should weigh different conditions.
 
 <p align="center">
-  <img src="./assets/readme/settings-dark.png" alt="Dark mode settings screen" width="260" />
+  <img src="./assets/readme/bilder%20for%20side/instillingerMørk.png" alt="Dark mode settings screen" width="260" />
 </p>
 
 ## Main Features

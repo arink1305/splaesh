@@ -1,86 +1,166 @@
-# Splæsh - Team 41
+# Splæsh
 
-Dette er Team 41 sitt prosjekt i faget IN2000.
-Appen gir brukeren en interaktiv oversikt over badeplasser i Norge, kombinert med sanntids værdata, sjøtemperaturer, UV-varsel, badeforhold-score, anbefalinger og viktige farevarsler fra Meteorologisk institutt.
+<p align="center">
+  <img src="./assets/readme/logo.png" alt="Splæsh logo" width="180" />
+</p>
 
----
+<p align="center">
+  <b>An Android bathing app for Norway with interactive weather maps, point forecasts, warnings, sea data, UV, and smart beach recommendations.</b>
+</p>
 
-## Hvordan kjøre appen
+<p align="center">
+  This repository is a public portfolio version of a team project originally developed in the course <code>IN2000</code>.
+</p>
 
-For å kjøre appen på din egen maskin, følger du disse stegene:
+## Overview
 
-1. Last ned Android Studio (helst nyeste versjon)
-2. Last ned prosjektmappen eller klon repositoriet til din lokale maskin via Git:
- 
+Splæsh was built as a map-first app for people who want to find a good bathing spot quickly and understand both the weather and the safety conditions before going out.
+
+The app combines:
+
+- bathing places across Norway shown directly on a map
+- weather point data and weather layers
+- sea temperature, wave height, currents, and UV
+- hazard warnings from Meteorologisk institutt
+- a custom bathing score that summarizes local bathing conditions
+- recommendations based on distance and bathing score
+
+This makes the app useful both for spontaneous trips and for planning ahead.
+
+## How the App Works
+
+### 1. Map Overview and Point Weather
+
+The home screen shows bathing places as pins on the map. Users can search, zoom, filter, and inspect places directly from the map view.  
+The app also includes point-based weather data, so a user can tap on the map and inspect weather conditions for a chosen location.
+
+<p align="center">
+  <img src="./assets/readme/weather-point.png" alt="Splæsh point weather on map" width="260" />
+</p>
+
+### 2. Beach Details and Bathing Score
+
+When a user taps a bathing place pin, the app opens a detailed popup with the most relevant local information.  
+This includes warnings, sea temperature, wave height, current, UV, and a custom bathing score that gives an overall evaluation of the conditions at that location.
+
+<p align="center">
+  <img src="./assets/readme/beach-popup.png" alt="Splæsh beach details popup" width="260" />
+</p>
+
+### 3. Weather Layers and Time-Based Forecasting
+
+The app supports map layers for:
+
+- temperature
+- precipitation
+- wind
+
+These layers are shown directly on top of the map and can be explored together with a time scroller, giving the user a weather-map experience similar to a mini-Yr.  
+This makes it possible to inspect forecast development over time rather than only looking at the current conditions.
+
+<p align="center">
+  <img src="./assets/readme/weather-layers.png" alt="Splæsh weather layers" width="260" />
+</p>
+
+### 4. Recommendations and Favorites
+
+The recommendation flow uses the user’s location and selected radius to suggest nearby bathing places.  
+Places are ranked using distance and the app’s bathing score, helping the user quickly discover where the best nearby conditions are.
+
+Users can also save favorite bathing places for faster access later.
+
+<p align="center">
+  <img src="./assets/readme/recommendations.png" alt="Splæsh recommendations screen" width="260" />
+  <img src="./assets/readme/favorites.png" alt="Splæsh favorites screen" width="260" />
+</p>
+
+### 5. Settings and Accessibility
+
+The app includes settings for display mode and bathing score preferences.  
+It supports both light and dark screen settings and lets the user adjust how the score should weigh different conditions.
+
+<p align="center">
+  <img src="./assets/readme/settings-dark.png" alt="Splæsh dark mode settings" width="260" />
+</p>
+
+## My Contributions
+
+In this project, I contributed especially to:
+
+- design and visual polish across the app
+- hazard warnings API integration
+- UV API integration
+- work on the Victoria weather map integration
+- bathing score UI and behavior
+- recommendation features and UX
+- preparing this public portfolio version of the repository
+
+## Tech Stack
+
+- `Kotlin`
+- `Jetpack Compose`
+- `MVVM`
+- `Coroutines`
+- `Retrofit`
+- `OkHttp`
+- `Gson`
+- `Kotlinx Serialization`
+- `Mapbox Maps SDK for Android`
+- `Coil`
+- `Google Play Services Location`
+
+## APIs and Data Sources
+
+- `Meteorologisk institutt - Locationforecast 2.0`
+  Point-based forecast data such as temperature, wind, precipitation, and weather symbols.
+- `Meteorologisk institutt - Oceanforecast 2.0`
+  Sea temperature and wave-related data.
+- `Meteorologisk institutt - MET Alerts`
+  Hazard warnings used both in the map and in beach details.
+- `Meteorologisk institutt - Victoria WMS`
+  Weather map layers for temperature, precipitation, and wind.
+- `Open-Meteo`
+  UV index data used as additional outdoor comfort and safety information.
+
+## Running the App Locally
+
+### Requirements
+
+- Android Studio
+- Android SDK
+- a physical Android device or emulator
+- your own Mapbox tokens
+
+### Clone the Repository
+
 ```bash
-   git clone https://github.com/arink1305/splaesh.git
-   ```
+git clone https://github.com/arink1305/splaesh.git
+```
 
-3. Åpne prosjektet i Android Studio
-4. Legg inn dine egne Mapbox-verdier i `local.properties`
-5. La Android Studio laste ned nødvendige avhengigheter og fullføre Gradle Sync
-6. Koble til en fysisk Android-enhet eller opprett en emulator, og trykk på **Run**
+### Local Setup
 
-### Mapbox-token
-
-Denne offentlige versjonen av prosjektet inneholder ikke ekte Mapbox-verdier i repoet.
-Du kan ta utgangspunkt i `local.properties.example`, og legge disse inn i din egen `local.properties`:
+1. Open the project in Android Studio.
+2. Copy `local.properties.example` to `local.properties`.
+3. Add your own Mapbox values:
 
 ```properties
 MAPBOX_ACCESS_TOKEN=your_public_mapbox_access_token
 MAPBOX_DOWNLOADS_TOKEN=your_mapbox_downloads_token
 ```
 
-- `MAPBOX_ACCESS_TOKEN` brukes av selve appen ved runtime.
-- `MAPBOX_DOWNLOADS_TOKEN` brukes av Gradle for å hente Mapbox-avhengigheter.
+4. Let Android Studio complete Gradle Sync.
+5. Run the app on an emulator or a physical Android device.
 
-Hvis du bare vil teste appen som bruker, anbefales APK-en under GitHub `Releases` i stedet for lokal bygging fra kildekode.
+### Why Mapbox Tokens Are Not Included
 
----
+This public repository does not include live Mapbox values.
 
-## Krav og tillatelser
+- `MAPBOX_ACCESS_TOKEN` is used by the app at runtime
+- `MAPBOX_DOWNLOADS_TOKEN` is used by Gradle to fetch Mapbox dependencies
 
-Appen krever kontinuerlig internettilgang for å hente værdata fra MET.no, UV-data fra Open-Meteo, og for å laste inn kartet og WMS-kartlag.
-Appen kan også bruke brukerens GPS-posisjon for å vise live posisjon på kartet og gi anbefalinger til nærliggende badeplasser. Derfor ber appen om lokasjonstilgang.
+If you want people to test the app without setting up Android Studio, the best approach is to provide a built APK through GitHub `Releases`.
 
----
+## Team Credit
 
-## Biblioteker og arkitektur
-
-Appen følger anbefalt Android-arkitektur med Jetpack Compose for brukergrensesnitt, Coroutines for asynkrone oppgaver og ViewModel for tilstandshåndtering.
-Til nettverkskall mot API-ene brukes Retrofit med Gson-konvertering.
-
-JUnit-biblioteket brukes til enhetstesting av appen. 
-
-### Mapbox Maps SDK for Android (Compose Extension)
-
-Et kartbibliotek. Vi trengte et kart som støtter Jetpack Compose direkte, og som lar oss legge API-data, som farevarsler i form av polygoner, og WMS-lag, som værkart for temperatur, nedbør og vind, oppå kartet sømløst.
-Mapbox gir oss også mulighet til å bytte mellom lys og mørk kartstil for en bedre brukeropplevelse, samt vise live posisjon på kartet.
-
-### Coil (Coil-Compose)
-
-Et bibliotek for bildeinnlasting i Android, bygget spesielt for Kotlin og Coroutines. Biblioteket brukes i Favoritter-skjermen (`FavoritesScreen`) for å asynkront laste ned og vise bilder av badeplassene fra nettadresser (`AsyncImage`). Dette forhindrer at appen fryser mens den venter på at store bilder skal lastes ned.
-
-### Kotlinx Serialization
-
-Kotlins offisielle bibliotek for å gjøre data om til JSON og motsatt. Vi bruker dette i `LocationRepository` for å lese og parse den lokale `badeplasser.json`-filen vår. Det er raskt og integrerer godt med Kotlin sine egne dataklasser.
-
-### OkHttp og Logging Interceptor
-
-OkHttp er et bibliotek som brukes sammen med Retrofit for å håndtere HTTP-kallene appen gjør mot API-ene. Det gir oss mer kontroll over nettverksforespørsler, for eksempel ved å legge til nødvendige headere. 
-Logging Interceptor brukes for å logge nettverkskall under utvikling, slik at vi lettere kan se hvilke forespørsler som sendes og hvilke svar appen får tilbake.
-
-### Google Play Services Location
-
-Google Play Services Location brukes for å hente brukerens GPS-posisjon. 
-Dette gjør at appen kan vise brukerens live posisjon på kartet, og brukes også som grunnlag for funksjoner som anbefalinger av nærliggende badeplasser. Siden dette biblioteket bruker lokasjon, krever appen at brukeren gir lokasjonstillatelse.
-
----
-
-## API-er som er brukt
-
-- **Meteorologisk institutt (Locationforecast 2.0):** For lufttemperatur, vind og nedbør.
-- **Meteorologisk institutt (Oceanforecast 2.0):** For sjøtemperatur og bølgehøyde.
-- **Meteorologisk institutt (WMS-kartlag):** For å vise værdata direkte oppå kartet.
-- **Meteorologisk institutt (MetAlerts 2.0):** For gjeldende farevarsler, inkludert polygoner på kart.
-- **Open-Meteo API:** For live og daglig maksmåling av UV-indeks.
+Splæsh was originally developed as a team project in `IN2000` by Team 41.  
+This repository is my public portfolio version of that work.

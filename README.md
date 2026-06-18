@@ -8,9 +8,7 @@
   <b>An Android bathing app for Norway with interactive weather maps, point forecasts, sea data, hazard warnings, UV, and beach recommendations.</b>
 </p>
 
-<p align="center">
-  Public portfolio version of a <b>group project</b> originally developed by <b>Team 41</b> in the course <code>IN2000</code> at the University of Oslo.
-</p>
+
 
 ## Project Context
 
@@ -219,7 +217,5 @@ This repository is a public portfolio version of the original course project.
 - No production release or public APK is bundled in this repository at the moment.
 
 ## Team Credit
-
-Splæsh was originally developed as a group project by `Team 41` in `IN2000` at the University of Oslo.
 
 This portfolio repository highlights my involvement in that work while keeping the project context clear.
